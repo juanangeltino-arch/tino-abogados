@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contacto | Tino Abogados</title>
+<meta name="description" content="Contacta con Tino Abogados y pide tu primera consulta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="cabecera">
+  <div class="wrap">
+    <a class="marca" href="index.html" aria-label="Tino Abogados, inicio">
+      <span class="sello" aria-hidden="true">T</span>
+      <span class="nombre">Tino <i>Abogados</i></span>
+    </a>
+    <button class="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="derecho-civil.html">Civil</a>
+      <a href="derecho-mercantil.html">Mercantil</a>
+      <a href="derecho-laboral.html">Laboral</a>
+      <a href="extranjeria.html">Extranjería</a>
+      <a href="el-despacho.html">El despacho</a>
+      <a class="btn" href="contacto.html">Pedir cita</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="cabecera-pagina raya">
+  <div class="wrap">
+    <div class="migas"><a href="index.html">Inicio</a> &nbsp;/&nbsp; Contacto</div>
+    <h1>Cuéntanos tu caso.</h1>
+    <p class="lead">Escríbenos o llámanos. Te responderemos lo antes posible para concertar una primera consulta.</p>
+  </div>
+</section>
+
+<div class="wrap contacto-grid">
+  <div>
+    <dl class="datos">
+      <!-- EDITA: tus datos reales -->
+      <div><dt>Teléfono</dt><dd><a href="tel:+34600000000">600 000 000</a></dd></div>
+      <div><dt>Correo electrónico</dt><dd><a href="mailto:contacto@tudominio.es">contacto@tudominio.es</a></dd></div>
+      <div><dt>Despacho</dt><dd>Calle Ejemplo, 1<br>28000 Madrid</dd></div>
+      <div><dt>Horario</dt><dd>Lunes a viernes, de 9:00 a 18:00</dd></div>
+    </dl>
+    <p class="aviso-form">Si tu asunto tiene un plazo próximo, como un despido reciente o una notificación, indícalo en el mensaje y llámanos.</p>
+  </div>
+
+  <!-- EDITA: cambia "action" por el servicio con el que recibas los mensajes
+       (Formspree, Formsubmit o el formulario de tu hosting). -->
+  <form action="https://formspree.io/f/TU_ID" method="POST">
+    <div class="doble">
+      <label>Nombre<input type="text" name="nombre" autocomplete="name" required></label>
+      <label>Teléfono<input type="tel" name="telefono" autocomplete="tel" required></label>
+    </div>
+    <label>Correo electrónico<input type="email" name="email" autocomplete="email" required></label>
+    <label>Área de tu consulta
+      <select name="area" required>
+        <option value="">Elige un área</option>
+        <option>Derecho Civil</option>
+        <option>Derecho Mercantil</option>
+        <option>Derecho Laboral</option>
+        <option>Extranjería</option>
+        <option>No lo sé</option>
+      </select>
+    </label>
+    <label>Cuéntanos brevemente tu caso<textarea name="mensaje" required></textarea></label>
+    <label class="consent">
+      <input type="checkbox" name="consentimiento" required>
+      <span>He leído y acepto la <a href="#">política de privacidad</a>. Usaremos tus datos únicamente para responder a tu consulta.</span>
+    </label>
+    <button type="submit" class="btn verde">Enviar consulta</button>
+  </form>
+</div>
+
+</main>
+<footer class="pie">
+  <div class="wrap">
+    <div class="pie-grid">
+      <div>
+        <div class="nombre">Tino <i>Abogados</i></div>
+        <p>Despacho de abogados en Derecho Civil, Mercantil, Laboral y Extranjería.</p>
+      </div>
+      <div>
+        <h4>Áreas</h4>
+        <ul>
+          <li><a href="derecho-civil.html">Derecho Civil</a></li>
+          <li><a href="derecho-mercantil.html">Derecho Mercantil</a></li>
+          <li><a href="derecho-laboral.html">Derecho Laboral</a></li>
+          <li><a href="extranjeria.html">Extranjería</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Despacho</h4>
+        <ul>
+          <li><a href="el-despacho.html">Quiénes somos</a></li>
+          <li><a href="index.html#proceso">Cómo trabajamos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <!-- EDITA: tus datos reales -->
+          <li><a href="tel:+34600000000">600 000 000</a></li>
+          <li><a href="mailto:contacto@tudominio.es">contacto@tudominio.es</a></li>
+          <li>Calle Ejemplo, 1 · Madrid</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pie-legal">
+      <!-- EDITA: tu número de colegiado y tu Colegio de Abogados -->
+      <span>© 2026 Tino Abogados · Abogado colegiado nº 00000 del Ilustre Colegio de Abogados de Madrid</span>
+      <span><a href="#">Aviso legal</a><a href="#">Política de privacidad</a><a href="#">Cookies</a></span>
+    </div>
+  </div>
+</footer>
+<script>
+  var b = document.querySelector('.burger'), n = document.getElementById('nav');
+  b.addEventListener('click', function () {
+    var abierto = n.classList.toggle('abierto');
+    b.setAttribute('aria-expanded', abierto);
+  });
+</script>
+</body>
+</html>

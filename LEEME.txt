@@ -1,0 +1,15 @@
+TINO ABOGADOS - WEB
+===================
+Archivos:
+  index.html               Inicio
+  derecho-civil.html       Derecho Civil
+  derecho-mercantil.html   Derecho Mercantil
+  derecho-laboral.html     Derecho Laboral
+  extranjeria.html         Extranjeria
+  el-despacho.html         El despacho
+  contacto.html            Contacto (formulario)
+  styles.css               Colores, tipografias y estilos de TODA la web
+
+Subelos todos a la raiz de tu dominio, en la misma carpeta.
+Busca la palabra EDITA en los HTML para encontrar lo que debes personalizar
+(telefono, correo, direccion, numero de colegiado, formulario, equipo).
