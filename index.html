@@ -49,6 +49,156 @@
   </div>
 </section>
 
+<!-- ============ LA JUSTICIA (ilustración animada con el scroll) ============ -->
+<section class="justicia" id="justicia" aria-label="La Justicia: balanza, espada y venda">
+  <div class="justicia-sticky raya">
+    <div class="wrap justicia-grid">
+      <div class="justicia-texto">
+        <!-- EDITA: puedes cambiar estos textos -->
+        <h2>Tres símbolos,<br><em>una forma de trabajar.</em></h2>
+        <div class="pasos-j">
+          <div class="paso-j" data-paso="balanza">
+            <h3>La balanza</h3>
+            <p>Estudiamos tu caso con rigor y te explicamos, sin jerga, qué opciones tienes y qué riesgo tiene cada una.</p>
+          </div>
+          <div class="paso-j" data-paso="espada">
+            <h3>La espada</h3>
+            <p>Cuando negociar no basta, defendemos tu posición ante el juzgado con preparación y firmeza.</p>
+          </div>
+          <div class="paso-j" data-paso="venda">
+            <h3>La venda</h3>
+            <p>La ley se aplica por igual a todos. Nuestro trabajo es conseguir que se aplique bien a tu caso.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="justicia-figura">
+        <svg id="estatua" viewBox="0 0 400 700" role="img" aria-label="Ilustración de la Justicia con balanza y espada" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <!-- aureola -->
+          <circle class="t" cx="200" cy="340" r="196" stroke-width="0.8" opacity="0.55"/>
+          <!-- pedestal -->
+          <path class="t" d="M120 606 H280 V630 H120 Z"/>
+          <path class="t" d="M100 630 H300 V656 H100 Z"/>
+          <path class="t" d="M84 656 H316 V676 H84 Z"/>
+          <!-- túnica -->
+          <path class="t" d="M172 332 Q146 470 122 604 M228 332 Q254 470 278 604"/>
+          <path class="t" d="M122 604 Q200 620 278 604"/>
+          <path class="t" d="M200 344 Q194 470 182 606 M200 344 Q206 470 218 606"/>
+          <path class="t" d="M186 340 Q166 470 150 604 M214 340 Q234 470 250 604"/>
+          <!-- torso, cinturón y banda -->
+          <path class="t" d="M150 192 Q156 262 172 322 M250 192 Q244 262 228 322"/>
+          <path class="t" d="M172 322 Q200 334 228 322 M174 332 Q200 344 226 332"/>
+          <path class="t" d="M158 200 Q204 246 246 306"/>
+          <path class="t" d="M150 192 Q168 168 191 164 M209 164 Q232 168 250 192"/>
+          <!-- cuello y cabeza -->
+          <path class="t" d="M191 144 V164 M209 144 V164"/>
+          <circle class="t" cx="200" cy="118" r="27"/>
+          <path class="t" d="M180 100 Q200 72 220 100"/>
+          <circle class="t" cx="200" cy="82" r="9"/>
+          <!-- brazo izquierdo (balanza) -->
+          <path class="t" d="M150 192 Q108 196 80 220 M152 206 Q116 214 86 238"/>
+          <circle class="t" cx="76" cy="230" r="9"/>
+          <!-- brazo derecho (espada) -->
+          <path class="t" d="M250 192 Q292 206 292 252 M244 208 Q276 222 280 262"/>
+          <path class="t" d="M282 252 Q282 276 292 278 Q302 276 302 252"/>
+
+          <!-- LA BALANZA -->
+          <g class="g g-balanza">
+            <path class="t" d="M76 222 V100"/>
+            <path class="t" d="M72 100 H80"/>
+            <g id="viga">
+              <path class="t" d="M32 96 H120"/>
+              <circle class="t" cx="76" cy="96" r="5"/>
+              <circle class="t" cx="32" cy="96" r="3"/>
+              <circle class="t" cx="120" cy="96" r="3"/>
+            </g>
+            <g id="platoI" transform="translate(32 96)">
+              <path class="t" d="M0 0 L-20 60 M0 0 L20 60"/>
+              <path class="t" d="M-26 60 Q0 86 26 60 Z"/>
+            </g>
+            <g id="platoD" transform="translate(120 96)">
+              <path class="t" d="M0 0 L-20 60 M0 0 L20 60"/>
+              <path class="t" d="M-26 60 Q0 86 26 60 Z"/>
+            </g>
+          </g>
+
+          <!-- LA ESPADA -->
+          <g class="g g-espada">
+            <path class="t" d="M288 250 V98 L292 60 L296 98 V250 Z"/>
+            <path class="t" d="M292 74 V248"/>
+            <path class="t" d="M270 250 H314"/>
+            <path class="t" d="M292 278 V284"/>
+            <circle class="t" cx="292" cy="290" r="5"/>
+          </g>
+
+          <!-- LA VENDA -->
+          <g class="g g-venda">
+            <path class="t" d="M174 114 Q200 122 226 114 M174 124 Q200 132 226 124"/>
+            <path class="t" d="M226 116 Q246 122 250 150 M226 122 Q240 134 240 160"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  (function () {
+    var sec = document.getElementById('justicia');
+    if (!sec) return;
+    var sticky = sec.querySelector('.justicia-sticky');
+    var svg = document.getElementById('estatua');
+    var trazos = svg.querySelectorAll('.t');
+    var viga = document.getElementById('viga');
+    var pI = document.getElementById('platoI');
+    var pD = document.getElementById('platoD');
+    var pasos = sec.querySelectorAll('.paso-j');
+    var reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var n = trazos.length;
+    var PX = 76, PY = 96, L = 44;
+
+    function clamp(x) { return Math.max(0, Math.min(1, x)); }
+
+    trazos.forEach(function (t) {
+      t.setAttribute('pathLength', '1');
+      t.style.strokeDasharray = '1';
+      t.style.strokeDashoffset = '1';
+    });
+
+    function pintar(p) {
+      var fin = 0.3;
+      trazos.forEach(function (t, i) {
+        var s = (i / n) * fin * 0.6, e = s + fin * 0.4;
+        t.style.strokeDashoffset = String(1 - clamp((p - s) / (e - s)));
+      });
+      var th = reducido ? 0 : 8 * Math.sin(p * 12) * (1 - p);
+      var r = th * Math.PI / 180;
+      viga.setAttribute('transform', 'rotate(' + th + ' ' + PX + ' ' + PY + ')');
+      pI.setAttribute('transform', 'translate(' + (PX - L * Math.cos(r)) + ' ' + (PY - L * Math.sin(r)) + ')');
+      pD.setAttribute('transform', 'translate(' + (PX + L * Math.cos(r)) + ' ' + (PY + L * Math.sin(r)) + ')');
+      var foco = p < 0.3 ? '' : p < 0.55 ? 'balanza' : p < 0.8 ? 'espada' : 'venda';
+      if (foco) svg.setAttribute('data-foco', foco); else svg.removeAttribute('data-foco');
+      pasos.forEach(function (el) { el.classList.toggle('activo', el.getAttribute('data-paso') === foco); });
+    }
+
+    function actualizar() {
+      var r = sec.getBoundingClientRect();
+      var total = sec.offsetHeight - sticky.offsetHeight;
+      var top = parseFloat(getComputedStyle(sticky).top) || 0;
+      pintar(clamp((top - r.top) / total));
+    }
+
+    if (reducido) {
+      pintar(1);
+      svg.removeAttribute('data-foco');
+      pasos.forEach(function (el) { el.classList.add('activo'); });
+    } else {
+      window.addEventListener('scroll', actualizar, { passive: true });
+      window.addEventListener('resize', actualizar);
+      actualizar();
+    }
+  })();
+</script>
+
 <section class="seccion" id="areas">
   <div class="wrap">
     <div class="cabecera-seccion">

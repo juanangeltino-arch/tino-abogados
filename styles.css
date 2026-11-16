@@ -345,6 +345,53 @@ form .btn { justify-self: start; }
   .indice a b { font-size: 28px; }
   .hero .lead, .cabecera-pagina .lead { font-size: 18px; }
 }
+/* ==========================================================
+   LA JUSTICIA (ilustración que se dibuja al hacer scroll)
+   ========================================================== */
+.justicia { position: relative; height: 300vh; }
+.justicia-sticky {
+  position: sticky; top: 80px; height: calc(100vh - 80px);
+  display: flex; align-items: center; overflow: hidden;
+}
+.justicia-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; height: 100%; }
+.justicia-texto h2 { font-size: clamp(34px, 4.4vw, 60px); }
+.justicia-texto h2 em { color: #dccfa6; }
+.pasos-j { display: grid; margin-top: 44px; min-height: 180px; }
+.paso-j {
+  grid-area: 1 / 1; align-self: start;
+  opacity: 0; transform: translateY(14px);
+  transition: opacity .5s ease, transform .5s ease;
+  border-top: 1px solid var(--laton); padding-top: 22px;
+}
+.paso-j.activo { opacity: 1; transform: none; }
+.paso-j h3 { font-size: 36px; color: #dccfa6; margin-bottom: 10px; }
+.paso-j p { color: #cdd7cd; font-weight: 300; font-size: 18px; max-width: 44ch; }
+.justicia-figura { height: 100%; display: flex; justify-content: center; align-items: center; padding: 28px 0; }
+#estatua { height: 100%; max-height: 660px; width: auto; color: #b89f68; overflow: visible; }
+#estatua .g { transition: opacity .5s ease, color .5s ease; }
+#estatua[data-foco] .g { opacity: .3; }
+#estatua[data-foco="balanza"] .g-balanza,
+#estatua[data-foco="espada"] .g-espada,
+#estatua[data-foco="venda"] .g-venda { opacity: 1; color: #eadfb9; }
+
+@media (max-width: 1000px) {
+  .justicia { height: 280vh; }
+  .justicia-grid { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) auto; gap: 8px; }
+  .justicia-figura { order: -1; padding: 12px 0 0; min-height: 0; }
+  .justicia-texto h2 { display: none; }
+  .pasos-j { margin-top: 0; min-height: 150px; }
+  .paso-j h3 { font-size: 30px; }
+  .paso-j p { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .justicia { height: auto; }
+  .justicia-sticky { position: static; height: auto; padding: 80px 0; }
+  .justicia-grid { height: auto; }
+  .justicia-figura { height: 560px; }
+  .pasos-j { display: block; min-height: 0; }
+  .paso-j { opacity: 1; transform: none; margin-bottom: 28px; }
+  .justicia-texto h2 { display: block; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
